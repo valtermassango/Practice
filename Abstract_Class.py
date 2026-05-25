@@ -17,4 +17,35 @@ class Vehicle(ABC):
     def stop (self):
         pass
 
-vehicle = Vehicle() # This will raise an error because we cannot instantiate an abstract class
+class Car (Vehicle):
+    def go(self):
+        print("You drive the car.")
+
+    def stop(self):
+        print("You stop the car.")
+
+car = Car()
+car.go()
+car.stop()
+
+class Motorcycle (Vehicle):
+    def go(self):
+        print("You ride the motorcycle.")
+
+    def stop(self):
+        print("You stop the motorcycle.")
+
+motorcycle = Motorcycle()
+motorcycle.go()
+motorcycle.stop()
+
+class Boat (Vehicle):
+    def go(self):
+        print("You sail the boat.")
+
+    def stop(self):
+        print("You anchor the boat.")
+
+boat = Boat()
+boat.go()
+boat.stop()
