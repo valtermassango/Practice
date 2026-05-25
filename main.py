@@ -7,12 +7,28 @@
 # variable defined outside the constructor are called class variables and are shared by all instances of the class.
 
 class Student:
+    class_Year = 2025
+    num_students=0
+
+
+
     def __init__(self, name, age, grade):
         self.name = name
         self.age = age
         self.grade = grade
+        Student.num_students += 1 # Increment the number of students each time a new student is created
+
+
 student1 = Student("John", 20, "A")
 student2 = Student("Jane", 21, "B")
+student3 = Student("Jack", 22, "C")
+student4 = Student("Jill", 23, "D")
 
 print(student1.name) # Output: John
 print(student2.name) # Output: Jane
+print(student1.class_Year) # ACcessing class variable using the instance
+print(Student.class_Year) # Accessing class variable using the class name is the recommended way to access class variables 
+
+print(Student.num_students) # Output: 3
+
+print(f"My graduating class of {Student.class_Year} has {Student.num_students} students.")
