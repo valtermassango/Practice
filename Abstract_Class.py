@@ -1,0 +1,1 @@
+#Abstract Class is a class that cannot be instantiated and is typically used as a base class for other classes. It can contain abstract methods, which are methods that are declared but not implemented in the abstract class. Subclasses of the abstract class must provide an implementation for the abstract methods.#
