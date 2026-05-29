@@ -1,28 +1,47 @@
-# Super Class is a class that is inherited by another class, known as the subclass. The subclass can override or    extend the functionality of the super class. The benefit of using a super class is: 
-# 1. Code Reusability: The super class can be reused by multiple subclasses, reducing code duplication.
-# 2. Maintainability: Changes to the super class are automatically reflected in all subclasses.
-# 3. Polymorphism: Subclasses can override methods of the super class, allowing for different behaviors based on the object type.
-
 class Shape:
     def __init__(self, color, filled):
         self.color = color
         self.filled = filled
+    
+    def discribe(self):
+        print(f"It is {self.color} and {'filled' if self.filled else 'not filled'}")
+
 
 class Circle(Shape):
-    def area(self, color, filled,radius):
-        super().__init__(color, filled)
+    def __init__(self, color, filled,radius):
+        super().__init__(color, filled)  # Call the constructor of the superclass
         self.radius = radius
 
+    def discribe(self):
+       super().discribe() # Call the describe method of the superclass
+       print(f"It is a circle with area of {3.14 * self.radius ** 2:.2f} cm^2 and circumference of {2 * 3.14 * self.radius:.2f} cm")
+        
 
+   
 class Square(Shape):
-    def area(self, color, filled, width):
-        super().__init__(color, filled)
+    def __init__(self, color, filled,width):
+        super().__init__(color, filled)  # Call the constructor of the superclass
         self.width = width
+
+    def discribe(self):        
+        super().discribe() # Call the describe method of the superclass
+        print(f"It is a square with area of {self.width ** 2} cm^2 and perimeter of {4 * self.width} cm")
 
 class Triangle(Shape):
-    def area(self, color, filled, width, height):
-        super().__init__(color, filled)
+    def __init__(self, color, filled,width,height):
+        super().__init__(color, filled)  # Call the constructor of the superclass
         self.width = width
         self.height = height
+    def discribe(self):
+        super().discribe() # Call the describe method of the superclass
+        print(f"It is a triangle with area of {0.5 * self.width * self.height} cm^2 and perimeter of {self.width + self.height + (self.width ** 2 + self.height ** 2) ** 0.5} cm")
 
-circle = Circle(color="red", filled=True, radius=5)
+
+circle = Circle("red", True, 5)
+square = Square("blue", False, 4)
+triangle = Triangle("green", True, 3, 4)
+
+
+#circle.discribe()
+#square.discribe()
+triangle.discribe()
